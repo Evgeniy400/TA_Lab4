@@ -9,7 +9,7 @@ public class Task1_req {
     static boolean reqCheck(String from, ArrayList<Integer> rules, String to) {
         if (from.equals(to)) {
             for (Integer rule : rules)
-                System.out.printf("%d. %s → %s\n", rule, grammar.get(rule).getKey(), grammar.get(rule).getValue());
+                System.out.printf("%d. %s → %s\n", rule+1, grammar.get(rule).getKey(), grammar.get(rule).getValue());
             return true;
         } else if (!isCor(from, to)) {
             return false;
@@ -52,26 +52,24 @@ public class Task1_req {
 
     static {
         grammar = new ArrayList<Map.Entry<String, String>>();
-        grammar.add(Map.entry("S", "O;A"));
-        grammar.add(Map.entry("O", "(YD[S]B"));
-        grammar.add(Map.entry("O", "!(Y)[S]B"));
-        grammar.add(Map.entry("O", "aE"));
-        grammar.add(Map.entry("O", "{C"));
-        grammar.add(Map.entry("Y", "(YD"));
-        grammar.add(Map.entry("Y", "!(Y)"));
-        grammar.add(Map.entry("Y", "a"));
-        grammar.add(Map.entry("A", ";OA"));
+        grammar.add(Map.entry("S", "O;C"));
+        grammar.add(Map.entry("O", "aD"));
+        grammar.add(Map.entry("E", "TA"));
+        grammar.add(Map.entry("T", "PB"));
+        grammar.add(Map.entry("P", "(E)"));
+        grammar.add(Map.entry("P", "-(E)"));
+        grammar.add(Map.entry("P", "a"));
+        grammar.add(Map.entry("A", "+TA"));
         grammar.add(Map.entry("A", "e"));
-        grammar.add(Map.entry("B", "[S]"));
+        grammar.add(Map.entry("B", "*PB"));
         grammar.add(Map.entry("B", "e"));
-        grammar.add(Map.entry("C", "[S]Y}"));
-        grammar.add(Map.entry("C", "(YD[S]}"));
-        grammar.add(Map.entry("C", "!(Y)[S]}"));
-        grammar.add(Map.entry("C", "a[S]}"));
-        grammar.add(Map.entry("D", "|Y)"));
-        grammar.add(Map.entry("D", "&Y)"));
-        grammar.add(Map.entry("E", "[S]B"));
-        grammar.add(Map.entry("E", "=Y"));
+        grammar.add(Map.entry("C", "S"));
+        grammar.add(Map.entry("C", "e"));
+        grammar.add(Map.entry("D", "[S]F"));
+        grammar.add(Map.entry("D", "=E"));
+        grammar.add(Map.entry("F", "[S]"));
+        grammar.add(Map.entry("F", "e"));
+
     }
 
     static void solve(String expr) {
